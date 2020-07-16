@@ -6,7 +6,7 @@ const requiredLogin = require('../middleware/requiredLogin')
 router.get('/mycart',requiredLogin, (req,res)=>{
     console.log(req.user._id)
     User.findOne({_id:req.user._id})
-    .populate("orders","_id foodName")
+    .populate("orders","_id foodName price")
     .then(user=>{
         console.log(user)
         res.json({user})
