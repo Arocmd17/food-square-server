@@ -18,13 +18,16 @@ router.put('/addtocart',requiredLogin,(req,res)=>{
         }
     })
 })
-
 router.put('/checkout',requiredLogin,(req,res)=>{
-    User.findByIdAndUpdate(req.body.userId,{
-        $pull:{likes:req.food._id}
-    },{
-        new:true
-    }).exec((err,result)=>{
+    console.log(req.body)
+    console.log(req.user)
+    const filter = { _id: req.user._id };
+    const update = { orders: [] };
+    User.findByIdAndUpdate(filter ,update,
+        {
+            new:true
+        })
+    .exec((err,result)=>{
         if(err){
             return res.status(422).json({error:err})
         }else{
@@ -32,4 +35,15 @@ router.put('/checkout',requiredLogin,(req,res)=>{
         }
     })
 })
+
+// router.delete('/check',requiredLogin,(req,res)=>{
+//     }).exec((err,result)=>{
+//         if(err){
+//             return res.status(422).json({error:err})
+//         }else{
+//             res.json(result)
+//         }
+//     })
+// })
+
 module.exports = router
