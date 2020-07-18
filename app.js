@@ -36,15 +36,17 @@ app.use(require('./routes/auth'))
 app.use(require('./routes/productdetails'))
 app.use(require('./routes/addtocart'))
 app.use(require('./routes/getmycart'))
-// app.get('/',(req,res)=>{
-//     res.send('It is working')
-// })
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'))
-    app.get('/*', function(req, res){
-        res.sendFile(path.join(__dirname + '/client/build/index.html'));
-    })
-}
+
+app.use(express.static('client/build'))
+app.get('/*', function(req, res){
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+})
+// if(process.env.NODE_ENV === 'production'){
+//     app.use(express.static('client/build'))
+//     app.get('/*', function(req, res){
+//         res.sendFile(path.join(__dirname + '/client/build/index.html'));
+//     })
+// }
 
 app.listen(PORT,()=>{
     console.log("Server is running on", PORT)
