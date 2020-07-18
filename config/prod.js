@@ -1,3 +1,4 @@
 module.exports={
+    MONGOURI: "mongodb+srv://ruben:6mjzGAJUXHsef4ng@cluster0.ods1i.mongodb.net/<dbname>?retryWrites=true&w=majority",
     JWT_SECRET:process.env.JWT_SECRET
 }
