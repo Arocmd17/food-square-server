@@ -12,7 +12,7 @@ mongoose.connect(MONGOURI,
     } 
 )
 mongoose.connection.on('connected',()=>{
-    console.log("Database created successfully!");
+    console.log(`Application connected successfully to ${MONGOURI}!`);
 })
 mongoose.connection.on('error', (err)=>{
     console.log("error connecting", err)
