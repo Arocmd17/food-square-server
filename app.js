@@ -29,7 +29,7 @@ require('./models/user')
 app.use(express.json())
 
   // Import router
-const routes = app.use(require('./routes/home'))
+const routes = require('./routes/home')
 app.use(require('./routes/registerfood'))
 app.use(require('./routes/auth'))
 app.use(require('./routes/productdetails'))
