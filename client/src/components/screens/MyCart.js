@@ -1,10 +1,20 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect, createContext, useReducer, useContext} from 'react';
 import { useHistory } from 'react-router-dom';
+export const UserContext =createContext()
 
 const MyCart = ()=>{
     const history = useHistory()
     const [data, setData] = useState([])
     let sn = 1
+    const {state, dispatch} = useContext(UserContext)
+    // useEffect(()=>{
+    //     const user = JSON.parse(localStorage.getItem("user"))
+    //     if(user){
+    //     dispatch({type:"USER", payload:user})
+    //     }else{
+    //     history.push('/signin')
+    //     }
+    // },[])
     useEffect(()=>{
         fetch("/mycart",{
             method:"get",
