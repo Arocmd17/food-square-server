@@ -28,8 +28,9 @@ require('./models/user')
 
 app.use(express.json())
 
-  // Import router
-const routes = require('./routes/home')
+app.use(morgan('tiny'));
+// Import router
+app.use(require('./routes/home'))
 app.use(require('./routes/registerfood'))
 app.use(require('./routes/auth'))
 app.use(require('./routes/productdetails'))
@@ -42,9 +43,6 @@ app.use(require('./routes/getmycart'))
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'))
 }
-// HTTP request logger
-app.use(morgan('tiny'));
-app.use('/home',routes)
 
 app.listen(PORT,()=>{
     console.log("Server is running on", PORT)
