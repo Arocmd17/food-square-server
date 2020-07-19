@@ -180,7 +180,7 @@ const Dashboard = () =>{
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                     <button className="btn modal-close waves-effect waves-light #1e88e5 blue darken-1"
                         onClick={()=>PostData()}>
                         Submit

@@ -12,6 +12,12 @@ import Productdetails from './components/screens/Productdetails';
 import Productcategory from './components/screens/Productcategory'
 import Dashboard from './components/screens/Admin'
 import MyCart from './components/screens/MyCart'
+import Beverages from './components/screens/category/Beverages';
+import Oilcategory from './components/screens/category/Oil';
+import Bread from './components/screens/category/Bread';
+import Condiments from './components/screens/category/Condiments';
+import Dairy from './components/screens/category/Dairy';
+import Produce from './components/screens/category/Produce';
 export const UserContext =createContext()
 
 const Routing = ()=>{
@@ -36,6 +42,24 @@ const Routing = ()=>{
       </Route>
       <Route exact path='/product/:productId' component={Productdetails}/>
       <Route exact path='/product-category/:category' component={Productcategory}/>
+       <Route exact path='/product-category-beverages'>
+          <Beverages/>
+      </Route>
+      <Route exact path='/product-category-oil'>
+          <Oilcategory/>
+      </Route>
+      <Route exact path='/product-category-dairy'>
+          <Dairy/>
+      </Route>
+      <Route exact path='/product-category-produce'>
+          <Produce/>
+      </Route>
+      <Route exact path='/product-category-condiments'>
+          <Condiments/>
+      </Route>
+      <Route exact path='/product-category-bread'>
+          <Bread/>
+      </Route>
       <Route exact path='/dashboard'>
           <Dashboard/>
       </Route>

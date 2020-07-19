@@ -37,12 +37,12 @@ const NavBar = ()=>{
               </ul>
             </div>
             <div className="category-route #4fc3f7 light-blue lighten-2">
-              <span onClick={()=>{viewCategory('Beverages')}} className="category-item">Beverages</span>
-              <span onClick={()=>{viewCategory('Oil')}}  className="category-item">Oil</span>
-              <span onClick={()=>{viewCategory('Dairy')}}  className="category-item">Dairy</span>
-              <span onClick={()=>{viewCategory('Produce')}}  className="category-item">Produce</span>
-              <span onClick={()=>{viewCategory('Condiments')}}  className="category-item">Condiments</span>
-              <span onClick={()=>{viewCategory('Bread')}}  className="category-item">Bread</span>
+              <Link to="/product-category-beverages" className="category-item">Beverages</Link>
+              <Link to="/product-category-oil" className="category-item">Oil</Link>
+              <Link to="/product-category-dairy"  className="category-item">Dairy</Link>
+              <Link to="/product-category-produce"  className="category-item">Produce</Link>
+              <Link to="/product-category-condiments"  className="category-item">Condiments</Link>
+              <Link to="/product-category-bread"  className="category-item">Bread</Link>
             </div>
         </nav> 
           
