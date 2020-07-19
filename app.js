@@ -1,10 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
+const path = require('path');
 
 const {MONGOURI} = require('./config/keys')
 //const PORT = 5000;
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 const app = express()
 mongoose.connect(MONGOURI,
     {
@@ -34,19 +35,20 @@ app.use(require('./routes/home'))
 app.use(require('./routes/registerfood'))
 app.use(require('./routes/auth'))
 app.use(require('./routes/productdetails'))
+app.use(require('./routes/productcategory'))
 app.use(require('./routes/addtocart'))
 app.use(require('./routes/getmycart'))
 
-app.use(express.static('client/build'))
-app.get('/*', function(req, res){
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
-})
-// if(process.env.NODE_ENV === 'production'){
-//     app.use(express.static('client/build'))
-//     app.get('/*', function(req, res){
-//         res.sendFile(path.join(__dirname + '/client/build/index.html'));
-//     })
-// }
+// app.use(express.static('client/build'))
+// app.get('/*', function(req, res){
+//     res.sendFile(path.join(__dirname,'/client/build/index.html'));
+// })
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
+    app.get('/*', function(req, res){
+        res.sendFile(path.join(__dirname, '/client/build/index.html'));
+    })
+}
 
 app.listen(PORT,()=>{
     console.log("Server is running on", PORT)

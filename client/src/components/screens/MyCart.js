@@ -1,19 +1,16 @@
-import React, {useEffect, createContext, useReducer, useContext} from 'react';
+import React, {useEffect, useState, createContext, useReducer, useContext} from 'react';
 import { useHistory } from 'react-router-dom';
+import M from 'materialize-css'
 export const UserContext =createContext()
 
 const MyCart = ()=>{
     const history = useHistory()
     const [data, setData] = useState([])
+    const [userData, setUserData] = useState({})
     let sn = 1
-    const {state, dispatch} = useContext(UserContext)
+    ///const {state, dispatch} = useContext(UserContext)
     // useEffect(()=>{
-    //     const user = JSON.parse(localStorage.getItem("user"))
-    //     if(user){
-    //     dispatch({type:"USER", payload:user})
-    //     }else{
-    //     history.push('/signin')
-    //     }
+    //     
     // },[])
     useEffect(()=>{
         fetch("/mycart",{
@@ -26,6 +23,8 @@ const MyCart = ()=>{
         .then(result=>{
             console.log(result.user.orders)
             setData(result.user.orders)
+            setUserData(result.user)
+            
         })
     },[])
     const checkout = (id)=>{
@@ -40,15 +39,9 @@ const MyCart = ()=>{
             })
         }).then(res=>res.json())
         .then(result=>{
-            // const newData = data.map(item =>{
-            //     if(item._id==result._id){
-            //         return result
-            //     }else{
-            //         return item
-            //     }
-            // })
-            setData(result)
-            alert('You have checkout sucessfully.')
+  
+            console.log(result)
+            M.toast({html: "You have checkout sucessfully.", classes:"#c62828 red darken-3"})
             history.push("/")
         }).catch(err=>{
             console.log(err)
@@ -56,7 +49,37 @@ const MyCart = ()=>{
     }
     return(
         <div className="card-details " >
-            <p>Hello here </p>
+            <h4><strong>Customer Details</strong></h4>
+            <hr/>
+            <table>
+                <thead>
+                <tr>
+                    <th>Customer Name:</th>
+                    <th>
+                        {userData?
+                            userData.name
+                        :
+                            "--"
+                        }
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr style={{height:"15px"}}>
+                        <th>Customer Email:</th>
+                        <th>
+                            {userData?
+                                userData.email
+                            :
+                                "--"
+                            }
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <h4><strong>Transaction Details</strong></h4>
+            <hr/>
            <table>
                 <thead>
                 <tr>

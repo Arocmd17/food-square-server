@@ -41,10 +41,12 @@
   margin: 70px 2%;
 }
 .category-route{
-  height: 40px;
+  height: 50px;
+  padding: 1px !important;
 }
 .category-item{
   margin: 10px;
+  font-size: x-large;
 }
 .card-image{
   width: auto;
@@ -63,7 +65,7 @@ span {
   padding: 20px;
   text-align: center;
   max-width: 400px;
-  margin: 10px auto;
+  margin: 30px auto;
   width: 300px;
   height: 500px;
 }
@@ -83,20 +85,22 @@ span {
 .category-item:hover{
   cursor: pointer;
 }
+.loggout:hover{
+  cursor:pointer
+}
 
 .card-details {
-  width: 80%;
+  width: 800px;
   height: 50%;
-  border: blue;
-  margin: 10px auto;
+  margin: 70px auto;
 }
 
 .details-card-image {
   width: 50%;
-  height: 400px;
+  height: 550px;
   float: left;
   margin: 0;
-  background-color: rgb(109, 142, 212);
+  background-color: rgb(213, 216, 223);
 }
 .details-card-content {
   width: 50%;
@@ -110,18 +114,33 @@ div>h1, h2, h3, p {
 
 .stock-card {
   margin-top: 30px;
-  width: 100%;
-  height: 400px;
-  margin: 5px auto ;
+  width: 70%;
+  height: 500px;
+  margin-left: 25% ;
   float: center;
   padding: 2px;
+  
 }
 
 .content-stock-card {
-  margin-top: 30px;
-  width: 50%;
-  height: 500px;
-  margin: 5px 25% ;
-  float: center;
-  padding: 2px;
+  height: 400px;
+  overflow: scroll;
 };
+
+
+
+table {
+  text-align: left;
+  position: relative;
+  border-collapse: collapse; 
+}
+th, td {
+  padding: 0.25rem;
+}
+
+th {
+  background: white;
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}

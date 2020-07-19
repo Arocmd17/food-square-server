@@ -43,7 +43,8 @@ const Productdetails = ({match:{params:{productId}}})=>{
                 <h3>Price: {data.price}</h3>
                 <h3>Stock: {data.quantity}</h3>
                 <p>Description: {data.description}</p>
-                <i className="material-icons right" onClick={()=>{addtoCart(data)}}>
+                <i className="material-icons right #dd2c00 deep-orange accent-4" style={{fontSize:"80px"}}
+                    onClick={()=>{addtoCart(data)}}>
                     add_shopping_cart
                 </i>
             </div>

@@ -1,16 +1,15 @@
 import React, {useState,useEffect} from 'react';
-import {useHistory} from 'react-router-dom'
-//import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-
-const Home = ()=>{
+const Productcategory = ({match:{params:{category}}})=>{
     const history = useHistory()
     const [data, setData] = useState([])
     useEffect(()=>{
-        fetch('/home',{
+        fetch(`/product-category/${category}`,{
             method:"get"
         }).then(res=>res.json())
         .then(result=>{
+            console.log(result.foods)
             setData(result.foods)
         })
     },[])
@@ -18,19 +17,18 @@ const Home = ()=>{
         history.push(`/product/${productId}`)
     }
     return(
-        <div className="home">
+       <div className="home">
             <div className="category">
                 {
                     data.map(item=>{
                         return(
                             
-                                <div className="card " key={item._id}  onClick={()=>{viewDetails(item._id)}}>
+                                <div className="card " key={item._id}>
                                     <div className="card-image waves-effect waves-block waves-light #e0f7fa cyan lighten-5">
                                         <img src={item.picture} alt=""/>
                                     </div>
                                     <div className="card-content">
-                                        <p className="card-title activator red-text text-darken-4"
-                                                     onClick={()=>{viewDetails(item._id)}}>{item.foodName}</p>
+                                        <p className="card-title activator red-text text-darken-4">{item.foodName}</p>
                                         <p>Category: <a href="/">{item.category}</a></p>
                                         <p>Price: NGN{item.price}</p>
                                         <p>Description: {item.description}</p>
@@ -52,4 +50,4 @@ const Home = ()=>{
         </div>
     )
 }
-export default Home
+export default Productcategory
