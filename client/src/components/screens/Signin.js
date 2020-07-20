@@ -51,6 +51,7 @@ const Signin  = () =>{
                     />
                 <input
                     type="password"
+                    autocomplete="on"
                     placeholder="password"
                     value = {password}
                     onChange= {(e)=>setPassword(e.target.value)}
