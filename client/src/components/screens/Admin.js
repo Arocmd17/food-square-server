@@ -85,7 +85,7 @@ const Dashboard = () =>{
     });
     return(
         <div className="stock-card"> 
-            <h4><strong>Transaction Details</strong></h4>
+            <h4><strong>Inventary</strong></h4>
             <hr/>
             <div className="content-stock-card">
                 <table>

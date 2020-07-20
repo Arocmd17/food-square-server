@@ -42,6 +42,7 @@ const Signin  = () =>{
         <div className="mycard"> 
             <div className="card auth-card input-field">
             <h2>Sign In</h2>
+            <form onSubmit={()=>PostData()}>
                 <input
                     type="text"
                     placeholder="email"
@@ -58,6 +59,7 @@ const Signin  = () =>{
                  onClick={()=>PostData()}>
                      Login
                  </button>
+            </form>    
                  <h5>
                     <Link to="/signup">Don't have an account?</Link>
                 </h5>
