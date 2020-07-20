@@ -29,12 +29,12 @@ const NavBar = ()=>{
             <div className="nav-wrapper">
               <a href="/" className="brand-logo">FOOD.com</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                  <li key="1"><Link to="/mycart" onClick={()=>{mustSignin()}}
+                  <li key="1"><Link to={state?"/mycart":"/signin"} onClick={()=>{mustSignin()}}
                    ><i className="material-icons">add_shopping_cart</i></Link></li>
                   <li key="2"><Link to="/Signin" >Sign In</Link></li>
                   <li key="3"><span className="loggout" onClick={()=>{signout()}} >Sign Out</span></li>
                   {/* <li key="4"><Link to={state? "/dashboard": "/signin"} onClick={()=>{mustSignin()}}>Admin</Link></li> */}
-                  <li key="4"><Link to="/dashboard">Admin</Link></li>
+                  <li key="4"><Link to={state?"/dashboard":"/signin"}>Admin</Link></li>
               </ul>
             </div>
             <div className="category-route #4fc3f7 light-blue lighten-2">

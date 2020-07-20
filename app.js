@@ -2,11 +2,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const path = require('path');
+const cors = require('cors')
 
 const {MONGOURI} = require('./config/keys')
 //const PORT = 5000;
 const PORT = process.env.PORT || 4000;
 const app = express()
+app.use(cors())
 mongoose.connect(MONGOURI,
     {
         useNewUrlParser:true,

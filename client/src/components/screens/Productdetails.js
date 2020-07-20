@@ -1,7 +1,8 @@
-import React, {useState,useEffect} from 'react';
+import React, {useContext, useState,useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-
+import {UserContext} from '../../App'
 const Productdetails = ({match:{params:{productId}}})=>{
+    const {state, dispatch} = useContext(UserContext)
     const history = useHistory()
     const [data, setData] = useState({})
     useEffect(()=>{
@@ -44,7 +45,7 @@ const Productdetails = ({match:{params:{productId}}})=>{
                 <h3>Stock: {data.quantity}</h3>
                 <p>Description: {data.description}</p>
                 <i className="material-icons right #dd2c00 deep-orange accent-4" style={{fontSize:"80px"}}
-                    onClick={()=>{addtoCart(data)}}>
+                    onClick={()=>{state? addtoCart(data): history.push('/signin')}}>
                     add_shopping_cart
                 </i>
             </div>
