@@ -34,15 +34,14 @@ const Home = ()=>{
                                         <p>Category: <a href="/">{item.category}</a></p>
                                         <p>Price: NGN{item.price}</p>
                                         <p>Description: {item.description}</p>
-                                        <li>
-                                            <i className="material-icons left" onClick={()=>{viewDetails(item._id)}}>
+                                            <i className="material-icons left" onClick={()=>{viewDetails(item._id)}}
+                                                style={{marginLeft:"100px"}}>
                                                 add_shopping_cart
-                                               </i>
-                                        </li>
+                                            </i>
                                         </div>
                                         <div className="card-reveal">
                                         <span className="card-title grey-text text-darken-4">{item.foodName}<i className="material-icons right">close</i></span>
-                                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                        <p>Our products are excelent.</p>
                                     </div>
                                 </div>
                         )
